@@ -1,15 +1,17 @@
-import './App.css';
+import './App.module.css';
 import { Body } from './body/Body.tsx';
 import { Login } from './feature/login';
 import { Provider, useSelector } from 'react-redux';
 import { RootState, rootStore, useAppDispatch } from './App/rootStore';
 import { useEffect } from 'react';
 import { autMe } from './entits/user/api/autMe.ts';
-import { Button } from 'antd';
+import { Button, Flex, Spin } from 'antd';
 import { logOut } from './entits';
+import { LoadingOutlined } from '@ant-design/icons';
+import css from './App.module.css';
 
 function App() {
-  const { isAuthorization } = useSelector((state: RootState) => state.userStore);
+  const { isAuthorization, isLoading } = useSelector((state: RootState) => state.userStore);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -21,6 +23,14 @@ function App() {
   const onClick = () => {
     dispatch(logOut());
   };
+
+  if (!isLoading) {
+    return (
+      <Flex className={css.containerLoading} justify={'center'} align={'center'}>
+        <Spin indicator={<LoadingOutlined style={{ fontSize: 48 }} spin />} />
+      </Flex>
+    );
+  }
 
   if (!isAuthorization) {
     return <Login />;
