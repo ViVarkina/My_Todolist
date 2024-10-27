@@ -1,5 +1,11 @@
-import {createAsyncThunk} from "@reduxjs/toolkit";
+import { createAsyncThunk } from '@reduxjs/toolkit';
+import { apiInstance } from '../../../shared';
+import { SignInRequest, SingInResponse } from '../type';
 
-export const sinIn= createAsyncThunk<>("user/sigIn", async ()=>{
-    const respons ={}
-})
+
+
+export const signIn = createAsyncThunk<SingInResponse, SignInRequest>('user/sigIn', async () => {
+  const response = await apiInstance.post<SingInResponse>(`users/login`, {});
+  console.log(response.data);
+  return response.data
+});
