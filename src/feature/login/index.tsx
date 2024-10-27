@@ -11,14 +11,18 @@ export const Login = () => {
 
   const onClick = () => {
     if (username && password) {
-      dispatch(signIn({username, password}))
+      dispatch(signIn({ username, password }));
     }
   };
 
   return (
     <Flex className={css.container} justify={'center'} align={'center'}>
       <Flex gap={12} vertical style={{ width: 500 }}>
-        <Input placeholder="Login" value={username} onChange={(el) => setUsername(el.target.value)} />
+        <Input
+          placeholder="Login"
+          value={username}
+          onChange={(el) => setUsername(el.target.value)}
+        />
         <Input
           placeholder="Password"
           type={'password'}

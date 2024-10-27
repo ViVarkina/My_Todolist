@@ -4,7 +4,7 @@ import { userSlice } from '../../entits';
 
 export const rootStore = configureStore({
   reducer: {
-    userSlice: userSlice.reducer,
+    userStore: userSlice.reducer,
   },
 });
 
