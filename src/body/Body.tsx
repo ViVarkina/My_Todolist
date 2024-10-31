@@ -1,7 +1,9 @@
+import { TodoLists } from './components/TodoLists.tsx';
+
 export const Body = () => {
   return (
     <>
-      <h1>Hello</h1>
+      <TodoLists/>
     </>
   );
 };

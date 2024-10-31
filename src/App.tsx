@@ -37,9 +37,11 @@ function App() {
   }
   return (
     <>
-      <Button type={'primary'} onClick={onClick}>
-        Выход
-      </Button>
+      <Flex justify={'end'}>
+        <Button type={'primary'} onClick={onClick} >
+          Выход
+        </Button>
+      </Flex>
       <Body />
     </>
   );
