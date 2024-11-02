@@ -1,11 +1,16 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { TodolistRequest } from '../type';
+import { TodolistDTO, TodolistRequest, TodolistResponse } from '../type';
 import { apiInstance } from '../../../shared';
 
-export const addTodolist = createAsyncThunk<void, TodolistRequest>(
+const normalizeData=(data: TodolistResponse): TodolistDTO =>{
+  const {created_at, user_id, ...rest}= data
+  return {createdAt: created_at, userId: user_id, ...rest}
+}
+
+export const addTodolist = createAsyncThunk<TodolistDTO, TodolistRequest>(
   'todolist/addTodolist',
-  async () => {
-    const response = await apiInstance.post('/todolist');
-    return;
+  async ({...data}) => {
+    const response = await apiInstance.post('/todolist',data);
+    return normalizeData(response.data)
   }
 );

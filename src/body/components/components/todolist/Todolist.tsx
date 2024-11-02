@@ -3,12 +3,17 @@ import css from './Todolist.module.css'
 import { DeleteOutlined, EditOutlined, PlusOutlined } from '@ant-design/icons';
 
 
-export const Todolist=()=>{
+export interface Props{
+  title: string,
+}
+
+
+export const Todolist=({title}:Props)=>{
 
   return(
         <Flex style={{ width: 600}} vertical gap={12} className={css.todolist} justify={'space-between'}>
           <Flex justify={'space-between'}>
-            <h3>Name</h3>
+            <h3>{title}</h3>
             <Flex gap={5}>
               <Button><EditOutlined /></Button>
               <Button><DeleteOutlined /></Button>
