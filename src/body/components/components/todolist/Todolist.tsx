@@ -4,6 +4,7 @@ import { DeleteOutlined, EditOutlined, PlusOutlined } from '@ant-design/icons';
 import { ChangeTitle } from '../changeTitle/ChangeTitle.tsx';
 import { useAppDispatch } from '../../../../App/rootStore';
 import { changeTodolist } from '../../../../entits/todolist/api/changeTodolist.ts';
+import { DeleteTodolist } from '../deleteTodolist/DeleteTodolist.tsx';
 
 export interface Props {
   title: string;
@@ -21,12 +22,16 @@ export const Todolist = ({ title, todolistId }: Props) => {
       className={css.todolist}
       justify={'space-between'}
     >
-      <ChangeTitle
-        title={title}
-        saveTitle={(value, callBack) => {
-          dispatch(changeTodolist({ todolistId, title: value, successCallback: callBack }));
-        }}
-      />
+      <Flex justify={'space-between'} gap={5}>
+        <ChangeTitle
+          title={title}
+          saveTitle={(value, callBack) => {
+            dispatch(changeTodolist({ todolistId, title: value, successCallback: callBack }));
+          }}
+        />
+        <DeleteTodolist todolistId={todolistId}/>
+      </Flex>
+
       <Flex>
         <Input placeholder={'Add task'} />
         <Button>

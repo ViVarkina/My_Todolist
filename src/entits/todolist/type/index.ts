@@ -18,3 +18,7 @@ export interface TodolistDTO {
   createdAt: string;
   userId: string;
 }
+
+export interface DeleteTodolistParams{
+  todolistId: string
+}

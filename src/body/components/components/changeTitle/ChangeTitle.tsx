@@ -1,5 +1,5 @@
 import { Button, Flex, Input } from 'antd';
-import { CheckOutlined, CloseOutlined, DeleteOutlined, EditOutlined } from '@ant-design/icons';
+import { CheckOutlined, CloseOutlined, EditOutlined } from '@ant-design/icons';
 import { useState } from 'react';
 
 export interface Props {
@@ -20,9 +20,9 @@ export const ChangeTitle = ({ title ,saveTitle}: Props) => {
   }
 
   return (
-    <Flex justify={'space-between'}>
+    <Flex justify={'space-between'} style={{width:"100%"}}>
       {titleIsVisible ? (
-        <Flex justify={'space-between'}>
+        <Flex justify={'space-between'} gap={10} style={{width:"100%"}}>
           <h3>{title}</h3>
           <Flex gap={5}>
             <Button
@@ -32,13 +32,10 @@ export const ChangeTitle = ({ title ,saveTitle}: Props) => {
             >
               <EditOutlined />
             </Button>
-            <Button>
-              <DeleteOutlined />
-            </Button>
           </Flex>
         </Flex>
       ) : (
-        <Flex justify={'space-between'}>
+        <Flex justify={'space-between'} gap={10}>
           <Input
             value={value}
             onChange={(event) => {
