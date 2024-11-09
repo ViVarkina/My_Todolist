@@ -7,9 +7,14 @@ const normalizeData=(data: TodolistResponse): TodolistDTO =>{
   return {createdAt: created_at, userId: user_id, ...rest}
 }
 
-export const addTodolist = createAsyncThunk<TodolistDTO, TodolistRequest>(
+interface CommonFunction {
+  successCallback: () => void;
+}
+
+export const addTodolist = createAsyncThunk<TodolistDTO, TodolistRequest & CommonFunction>(
   'todolist/addTodolist',
-  async ({...data}) => {
+  async ({successCallback,...data}) => {
+    successCallback?.()
     const response = await apiInstance.post('/todolist',data);
     return normalizeData(response.data)
   }

@@ -8,12 +8,16 @@ export const AddTodolist = () => {
   const [value, setValue] = useState<string>('');
   const dispatch = useAppDispatch()
 
+  const clearValue=()=>{
+    setValue(" ")
+  }
+
 
   const onClick=()=>{
     if (!value){
       return
     }
-    dispatch(addTodolist({title:value, description:""}))
+    dispatch(addTodolist({title:value, description:"",successCallback:clearValue}))
   }
 
   return (
