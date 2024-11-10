@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { getMyTodolist } from '../api/getMyTodolist.ts';
 import { addTodolist } from '../api/addTodolist.ts';
 import { TodolistDTO } from '../type';
+import { changeTodolist } from '../api/changeTodolist.ts';
 
 interface InitialStateType {
   todoLists: TodolistDTO[];
@@ -35,6 +36,13 @@ const todolistSlice = createSlice({
       .addCase(addTodolist.fulfilled, (state, action) => {
         state.todoLists.unshift(action.payload);
         state.isLoading = false;
+      })
+      .addCase(changeTodolist.pending, (state)=>{
+        state.isLoading =true
+      })
+      .addCase(changeTodolist.fulfilled, (state, action)=>{
+        state.todoLists = [...state.todoLists.filter((el)=>el.id != action.payload.id), action.payload]
+      //   TODO заменить эл по индексу в массиве (splice)
       })
 
   }

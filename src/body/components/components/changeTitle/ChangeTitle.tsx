@@ -10,6 +10,7 @@ export interface Props {
 export const ChangeTitle = ({ title ,saveTitle}: Props) => {
   const [titleIsVisible, setTitleIsVisible] = useState<boolean>(true);
   const [value, setValue] = useState<string>(title);
+  console.log(title);
 
   const closeWind = () => {
     setTitleIsVisible(true);

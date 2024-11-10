@@ -16,13 +16,13 @@ export const TodoLists=()=>{
     dispatch(getMyTodolist())
   }, []);
 
-
+  console.log(todoLists);
   return(
     <Flex className={css.container} align={'center'} vertical gap={24}>
       <AddTodolist/>
       <Flex wrap={'wrap'} className={css.todolists} gap={16} justify={"center"}>
         {todoLists.map((todolist)=>{
-          return <Todolist title={todolist.title}/>
+          return <Todolist title={todolist.title} todolistId={todolist.id} key={todolist.id}/>
         })}
       </Flex>
     </Flex>

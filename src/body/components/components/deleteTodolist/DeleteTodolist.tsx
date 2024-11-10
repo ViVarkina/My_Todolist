@@ -13,7 +13,7 @@ export const DeleteTodolist=({todolistId}:PropsType)=>{
 
 
   return(
-    <Button onClick={dispatch(deleteTodolist({todolistId}))}>
+    <Button onClick={()=> dispatch(deleteTodolist({todolistId}))}>
       <DeleteOutlined />
     </Button>
   )
