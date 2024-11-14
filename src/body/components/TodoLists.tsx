@@ -6,6 +6,7 @@ import { RootState, useAppDispatch } from '../../App/rootStore';
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { getMyTodolist } from '../../entits/todolist/api/getMyTodolist.ts';
+import { getMyTask } from '../../entits/task/api/getMyTask.ts';
 
 
 export const TodoLists=()=>{
@@ -14,9 +15,10 @@ export const TodoLists=()=>{
 
   useEffect(() => {
     dispatch(getMyTodolist())
+    dispatch(getMyTask())
   }, []);
 
-  console.log(todoLists);
+
   return(
     <Flex className={css.container} align={'center'} vertical gap={24}>
       <AddTodolist/>

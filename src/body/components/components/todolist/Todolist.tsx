@@ -1,10 +1,11 @@
-import { Button, Checkbox, Flex, Input } from 'antd';
+import { Button, Flex } from 'antd';
 import css from './Todolist.module.css';
-import { DeleteOutlined, EditOutlined, PlusOutlined } from '@ant-design/icons';
 import { ChangeTitle } from '../changeTitle/ChangeTitle.tsx';
 import { useAppDispatch } from '../../../../App/rootStore';
 import { changeTodolist } from '../../../../entits/todolist/api/changeTodolist.ts';
 import { DeleteTodolist } from '../deleteTodolist/DeleteTodolist.tsx';
+import { AddTask } from '../addTask/AddTask.tsx';
+import { TaskList } from '../taskList/TaskList.tsx';
 
 export interface Props {
   title: string;
@@ -13,7 +14,6 @@ export interface Props {
 
 export const Todolist = ({ title, todolistId }: Props) => {
   const dispatch = useAppDispatch();
-
 
   return (
     <Flex
@@ -30,27 +30,10 @@ export const Todolist = ({ title, todolistId }: Props) => {
             dispatch(changeTodolist({ todolistId, title: value, successCallback: callBack }));
           }}
         />
-        <DeleteTodolist todolistId={todolistId}/>
+        <DeleteTodolist todolistId={todolistId} />
       </Flex>
-
-      <Flex>
-        <Input placeholder={'Add task'} />
-        <Button>
-          <PlusOutlined />
-        </Button>
-      </Flex>
-      <Flex justify={'space-between'}>
-        <Checkbox></Checkbox>
-        <h3>Name</h3>
-        <Flex gap={5}>
-          <Button>
-            <EditOutlined />
-          </Button>
-          <Button>
-            <DeleteOutlined />
-          </Button>
-        </Flex>
-      </Flex>
+      <AddTask />
+      <TaskList />
       <Flex gap={5}>
         <Button>All</Button>
         <Button>Active</Button>
