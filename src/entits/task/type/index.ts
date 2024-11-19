@@ -1,4 +1,4 @@
-export interface TaskRequest {
+export interface TaskResponse {
   id: string;
   description: string;
   todolist_id: string;
@@ -6,6 +6,14 @@ export interface TaskRequest {
   due_date: string;
   is_completed: boolean;
   created_at: string;
+}
+
+export interface TaskRequest {
+  description?: string;
+  todolist_id: string;
+  title: string;
+  due_date?: string;
+  is_completed?: boolean;
 }
 
 export interface TaskTDO {

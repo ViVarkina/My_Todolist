@@ -1,14 +1,10 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { apiInstance } from '../../../shared';
-import { TaskRequest, TaskTDO } from '../type';
+import { TaskRequest, TaskResponse, TaskTDO } from '../type';
 
-const normalize=(data:TaskRequest): TaskTDO=>{
+const normalize=(data:TaskResponse): TaskTDO=>{
   const { todolist_id, due_date, created_at, is_completed,...rest} = data
   return {todolistId: todolist_id, dueDate: due_date, createdAt: created_at, isCompleted:is_completed, ...rest}
-}
-
-interface TaskType{
-
 }
 
 
