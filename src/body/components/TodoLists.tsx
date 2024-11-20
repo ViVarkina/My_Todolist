@@ -24,7 +24,7 @@ export const TodoLists=()=>{
       <AddTodolist/>
       <Flex wrap={'wrap'} className={css.todolists} gap={16} justify={"center"}>
         {todoLists.map((todolist)=>{
-          return <Todolist title={todolist.title} todolistId={todolist.id} key={todolist.id}/>
+          return <Todolist title={todolist.title} todolistId={todolist.id} key={todolist.id} />
         })}
       </Flex>
     </Flex>

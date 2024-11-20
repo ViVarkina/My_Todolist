@@ -1,19 +1,40 @@
 import { Button, Flex } from 'antd';
 import css from './Todolist.module.css';
 import { ChangeTitle } from '../changeTitle/ChangeTitle.tsx';
-import { useAppDispatch } from '../../../../App/rootStore';
+import { RootState, useAppDispatch } from '../../../../App/rootStore';
 import { changeTodolist } from '../../../../entits/todolist/api/changeTodolist.ts';
 import { DeleteTodolist } from '../deleteTodolist/DeleteTodolist.tsx';
 import { AddTask } from '../addTask/AddTask.tsx';
 import { TaskList } from '../taskList/TaskList.tsx';
+import { TaskTDO } from '../../../../entits/task/type';
+import { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { FilterTasks } from '../filterTasks/FilterTasks.tsx';
 
 export interface Props {
   title: string;
   todolistId: string;
 }
 
+export type FilterStateType = 'All' | 'Active' | 'Closed';
+
 export const Todolist = ({ title, todolistId }: Props) => {
   const dispatch = useAppDispatch();
+  const [filterState, setFilterState] = useState<FilterStateType>('All');
+  console.log(setFilterState);
+  const { tasksObj } = useSelector((state: RootState) => state.taskStore);
+
+
+  const tasks = tasksObj[todolistId];
+  let filterTask: TaskTDO[] = []
+
+  if (filterState === 'All') {
+    filterTask = tasks;
+  } else if (filterState === 'Active') {
+    filterTask = tasks.filter((task) => !task.isCompleted);
+  } else if (filterState === 'Closed') {
+    filterTask = tasks.filter((task) => task.isCompleted);
+  }
 
   return (
     <Flex
@@ -32,13 +53,9 @@ export const Todolist = ({ title, todolistId }: Props) => {
         />
         <DeleteTodolist todolistId={todolistId} />
       </Flex>
-      <AddTask />
-      <TaskList />
-      <Flex gap={5}>
-        <Button>All</Button>
-        <Button>Active</Button>
-        <Button>Closed</Button>
-      </Flex>
+      <AddTask todolistId={todolistId}/>
+      <TaskList filterTask={filterTask}/>
+      <FilterTasks/>
     </Flex>
   );
 };
