@@ -10,4 +10,5 @@ export const FilterTasks=()=>{
       <Button>Closed</Button>
     </Flex>
   )
+
 }

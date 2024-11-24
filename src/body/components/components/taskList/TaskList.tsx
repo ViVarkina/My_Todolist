@@ -13,7 +13,7 @@ export const TaskList=({filterTask}:PropsType)=>{
     <ul>
       {filterTask?.map((task) => (
           <li key={task.id}>
-            <Flex>
+            <Flex gap={5}>
               <Checkbox></Checkbox>
               <ChangeTitle title={task.title} saveTitle={()=>{}}/>
               <Flex gap={5}>
