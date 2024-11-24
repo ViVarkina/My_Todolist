@@ -28,8 +28,18 @@ const taskSlice = createSlice({
       state.isLoading = true
     })
       .addCase(getMyTask.fulfilled, (state, action)=>{
-        state.tasks = action.payload
-        state.isLoading=false
+        state.tasks = action.payload;
+
+        const taskObj: TaskType = {};
+        action.payload.forEach((el) => {
+          if (taskObj[el.todolistId]) {
+            taskObj[el.todolistId] = [...taskObj[el.todolistId], el]
+          } else {
+            taskObj[el.todolistId] = [el]
+            }
+        });
+        state.tasksObj = taskObj;
+        state.isLoading = false;
       })
       .addCase(addTask.fulfilled, (state, action)=>{
         const taskObj = { ...state.tasksObj };

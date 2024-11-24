@@ -7,23 +7,22 @@ export interface Props {
   saveTitle: (value: string, callBack: () => void) => void;
 }
 
-export const ChangeTitle = ({ title ,saveTitle}: Props) => {
+export const ChangeTitle = ({ title, saveTitle }: Props) => {
   const [titleIsVisible, setTitleIsVisible] = useState<boolean>(true);
   const [value, setValue] = useState<string>(title);
-  console.log(title);
 
   const closeWind = () => {
     setTitleIsVisible(true);
   };
 
-  const saveTitleInput=()=>{
-    saveTitle(value, closeWind)
-  }
+  const saveTitleInput = () => {
+    saveTitle(value, closeWind);
+  };
 
   return (
-    <Flex justify={'space-between'} style={{width:"100%"}}>
+    <Flex justify={'space-between'} style={{ width: '100%' }}>
       {titleIsVisible ? (
-        <Flex justify={'space-between'} gap={10} style={{width:"100%"}}>
+        <Flex justify={'space-between'} gap={10} style={{ width: '100%' }}>
           <h3>{title}</h3>
           <Flex gap={5}>
             <Button
@@ -47,11 +46,13 @@ export const ChangeTitle = ({ title ,saveTitle}: Props) => {
             <Button onClick={saveTitleInput}>
               <CheckOutlined />
             </Button>
-            <Button onClick={()=>{
-              setTitleIsVisible(true);
-              setValue(title);
-            }}>
-              <CloseOutlined/>
+            <Button
+              onClick={() => {
+                setTitleIsVisible(true);
+                setValue(title);
+              }}
+            >
+              <CloseOutlined />
             </Button>
           </Flex>
         </Flex>
