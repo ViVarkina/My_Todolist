@@ -25,3 +25,5 @@ export interface TaskTDO {
   isCompleted: boolean;
   createdAt: string;
 }
+
+export interface TaskUpdateRequest extends Partial<Pick<TaskTDO, 'isCompleted' | "title">>{}
