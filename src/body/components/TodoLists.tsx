@@ -20,9 +20,9 @@ export const TodoLists=()=>{
 
 
   return(
-    <Flex className={css.container} align={'center'} vertical gap={24}>
+    <Flex className={css.container} align={'center'} vertical gap={24} style={{height:'100vh'}}>
       <AddTodolist/>
-      <Flex wrap={'wrap'} className={css.todolists} gap={16} justify={"center"}>
+      <Flex wrap={'wrap'} className={css.todolists} gap={16} justify={"center"} style={{height:'50%'}}>
         {todoLists.map((todolist)=>{
           return <Todolist title={todolist.title} todolistId={todolist.id} key={todolist.id} />
         })}

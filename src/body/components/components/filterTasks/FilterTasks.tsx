@@ -1,13 +1,23 @@
 import { Button, Flex } from 'antd';
+import { FilterStateType } from '../todolist/Todolist.tsx';
 
+interface Props {
+  setFilterState:(filterState:FilterStateType) =>void
+  filterState: FilterStateType;
+}
 
-export const FilterTasks=()=>{
+const listButton: FilterStateType[] = ['All', 'Active', 'Closed'];
+
+export const FilterTasks=(props:Props)=>{
+  const { filterState, setFilterState } = props;
+  console.log(filterState);
 
   return (
     <Flex gap={5}>
-      <Button>All</Button>
-      <Button>Active</Button>
-      <Button>Closed</Button>
+      {listButton.map((el)=>(
+        <Button key={el} onClick={()=>setFilterState(el)}>{el}</Button>
+        )
+      )}
     </Flex>
   )
 

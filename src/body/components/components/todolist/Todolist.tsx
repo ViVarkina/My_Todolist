@@ -30,21 +30,22 @@ export const Todolist = ({ title, todolistId }: Props) => {
 
   if (filterState === 'All') {
     filterTask = tasks;
-  } else if (filterState === 'Active') {
-    filterTask = tasks.filter((task) => !task.isCompleted);
   } else if (filterState === 'Closed') {
+    filterTask = tasks.filter((task) => !task.isCompleted);
+  } else if (filterState === 'Active') {
     filterTask = tasks.filter((task) => task.isCompleted);
   }
 
   return (
     <Flex
-      style={{ width: 600 }}
+      style={{ width: 600 , }}
       vertical
       gap={12}
       className={css.todolist}
       justify={'space-between'}
+
     >
-      <Flex justify={'space-between'} gap={5}>
+      <Flex justify={'space-between'} gap={5} style={{height:'20%'}}>
         <ChangeTitle
           title={title}
           saveTitle={(value, callBack) => {
@@ -53,9 +54,15 @@ export const Todolist = ({ title, todolistId }: Props) => {
         />
         <DeleteTodolist todolistId={todolistId} />
       </Flex>
-      <AddTask todolistId={todolistId}/>
-      <TaskList filterTask={filterTask}/>
-      <FilterTasks/>
+      <Flex vertical  justify={'flex-top'} >
+        <AddTask todolistId={todolistId}/>
+        <TaskList filterTask={filterTask}/>
+      </Flex>
+      <Flex style={{height:'20%'}} justify={'flex-end'}vertical>
+        <FilterTasks filterState={filterState} setFilterState={setFilterState}/>
+      </Flex>
+
+
     </Flex>
   );
 };

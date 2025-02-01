@@ -12,14 +12,19 @@ export const AddTask=({todolistId}:PropsType)=>{
   const [value, setValue] =useState<string>('')
   const dispatch = useAppDispatch()
 
+
   const onClickTask = () => {
-    dispatch(addTask({title:value, todolist_id:todolistId}))
+    if (!value){
+      return
+    }
+    dispatch(addTask({title:value, todolist_id:todolistId, successCallback:()=>setValue("")}))
   }
 
   return (
     <Flex>
-      <Input placeholder={'Add task'} onChange={(e)=>{
+      <Input placeholder={'Add task'} value={value} onChange={(e)=>{
         setValue(e.currentTarget.value)
+
       }}/>
       <Button onClick={onClickTask}>
         <PlusOutlined />

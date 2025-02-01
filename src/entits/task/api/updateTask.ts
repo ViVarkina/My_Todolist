@@ -12,7 +12,8 @@ const normalize=(data:TaskResponse): TaskTDO=>{
   return {todolistId: todolist_id, dueDate: due_date, createdAt: created_at, isCompleted:is_completed, ...rest}
 }
 
-export const updateTask= createAsyncThunk<TaskTDO, TaskUpdateRequest & CommonData>('task/updateTask', async ({taskId, isCompleted:is_completed, title})=>{
+export const updateTask= createAsyncThunk<TaskTDO, TaskUpdateRequest & CommonData>('task/updateTask', async ({taskId, isCompleted:is_completed, title, successCallback})=>{
+  successCallback?.()
   const response = await apiInstance.patch<TaskResponse>(`/task/${taskId}`, { is_completed,title});
   return normalize(response.data)
 })

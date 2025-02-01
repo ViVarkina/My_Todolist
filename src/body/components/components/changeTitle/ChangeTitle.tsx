@@ -5,9 +5,10 @@ import { useState } from 'react';
 export interface Props {
   title: string;
   saveTitle: (value: string, callBack: () => void) => void;
+  disabled?: boolean;
 }
 
-export const ChangeTitle = ({ title, saveTitle }: Props) => {
+export const ChangeTitle = ({disabled, title, saveTitle }: Props) => {
   const [titleIsVisible, setTitleIsVisible] = useState<boolean>(true);
   const [value, setValue] = useState<string>(title);
 
@@ -29,6 +30,7 @@ export const ChangeTitle = ({ title, saveTitle }: Props) => {
               onClick={() => {
                 setTitleIsVisible(false);
               }}
+              disabled={disabled}
             >
               <EditOutlined />
             </Button>
