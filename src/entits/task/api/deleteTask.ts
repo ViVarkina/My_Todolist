@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { TaskResponse } from '../type';
-import { apiInstance } from '../../../shared';
+import { apiInstance } from '@/shared';
 import { getMyTask } from './getMyTask.ts';
 
 interface DeleteTaskRequest{

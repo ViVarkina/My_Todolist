@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { apiInstance } from '../../../shared';
+import { apiInstance } from '@/shared';
 import { TaskResponse, TaskTDO } from '../type';
 
 const normalizeTask=(taskList:TaskResponse[]):TaskTDO[]=>{

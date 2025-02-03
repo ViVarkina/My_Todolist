@@ -1,8 +1,8 @@
 import { Button, Input, Flex } from 'antd';
 import css from './styles.module.css';
 import { useState } from 'react';
-import { useAppDispatch } from '../../App/rootStore';
-import { signIn } from '../../entits/user/api/sinIn.ts';
+import { useAppDispatch } from '@/App/rootStore';
+import { signIn } from '@/entits/user/api/sinIn.ts';
 
 export const Login = () => {
   const [username, setUsername] = useState('');

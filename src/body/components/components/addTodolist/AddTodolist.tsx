@@ -1,8 +1,8 @@
 import { Button, Flex, Input } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 import { useState } from 'react';
-import { useAppDispatch } from '../../../../App/rootStore';
-import { addTodolist } from '../../../../entits/todolist/api/addTodolist.ts';
+import { useAppDispatch } from '@/App/rootStore';
+import { addTodolist } from '@/entits';
 
 export const AddTodolist = () => {
   const [value, setValue] = useState<string>('');

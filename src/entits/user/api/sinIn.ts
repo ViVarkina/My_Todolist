@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { apiInstance, setAutHeaderLocalStore } from '../../../shared';
+import { apiInstance, setAutHeaderLocalStore } from '@/shared';
 import { SignInRequest, SingInResponse } from '../type';
 import { autMe } from './autMe.ts';
 

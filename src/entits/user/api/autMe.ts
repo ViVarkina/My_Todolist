@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { apiInstance, setAutHeader } from '../../../shared';
+import { apiInstance, setAutHeader } from '@/shared';
 
 export const autMe = createAsyncThunk<void, void>('user/autMe', async () => {
   setAutHeader();

@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { TaskResponse, TaskTDO, TaskUpdateRequest } from '../type';
-import { apiInstance } from '../../../shared';
+import { apiInstance } from '@/shared';
 
 interface CommonData{
   taskId:string

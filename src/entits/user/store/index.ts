@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { autMe } from '../api/autMe.ts';
-import { deleteAutToken } from '../../../shared';
+import { autMe } from '@/entits';
+import { deleteAutToken } from '@/shared';
 
 const userSlice = createSlice({
   name: 'user',

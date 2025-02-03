@@ -1,8 +1,8 @@
 import { Button, Flex, Input } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
-import { useAppDispatch } from '../../../../App/rootStore';
+import { useAppDispatch } from '@/App/rootStore';
 import { useState } from 'react';
-import { addTask } from '../../../../entits/task/api/addTask.ts';
+import { addTask } from '@/entits';
 
 interface PropsType{
   todolistId: string

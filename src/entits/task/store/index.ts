@@ -1,8 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getMyTask } from '../api/getMyTask.ts';
+import { getMyTask } from '@/entits/task';
 import { TaskTDO } from '../type';
-import { addTask } from '../api/addTask.ts';
-import { updateTask } from '../api/updateTask.ts';
+import { addTask } from '@/entits/task';
+import { updateTask } from '@/entits/task';
 
 export interface TaskType {
   [key: string]: TaskTDO[];
