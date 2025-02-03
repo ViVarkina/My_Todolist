@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { apiInstance } from '../../../shared';
+import { apiInstance } from '@/shared';
 import { TodolistDTO, TodolistRequest, TodolistResponse } from '../type';
 
 const normalizeData = (data: TodolistResponse): TodolistDTO => {

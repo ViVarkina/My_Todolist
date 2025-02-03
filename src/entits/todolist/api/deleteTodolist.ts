@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { apiInstance } from '../../../shared';
+import { apiInstance } from '@/shared';
 import { DeleteTodolist } from '../type';
 import { getMyTodolist } from './getMyTodolist.ts';
 

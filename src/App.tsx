@@ -38,7 +38,7 @@ function App() {
   return (
     <>
       <Flex justify={'end'}>
-        <Button type={'primary'} onClick={onClick} >
+        <Button type={'primary'} onClick={onClick}>
           Выход
         </Button>
       </Flex>
