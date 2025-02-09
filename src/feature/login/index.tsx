@@ -1,19 +1,36 @@
 import { Button, Input, Flex } from 'antd';
 import css from './styles.module.css';
-import { useState } from 'react';
-import { useAppDispatch } from '@/App/rootStore';
+import { useEffect, useState } from 'react';
+import { RootState, useAppDispatch } from '@/App/rootStore';
 import { signIn } from '@/entits/user/api/sinIn.ts';
+import { useSelector } from 'react-redux';
+import { Navigate } from 'react-router-dom';
+import { autMe } from '@/entits';
 
 export const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useAppDispatch();
+  const {isAuthorization}=useSelector((state:RootState)=>state.userStore)
+
+  useEffect(() => {
+    if (!isAuthorization) {
+      dispatch(autMe());
+    }
+  }, []);
+
+  if(isAuthorization){
+    return <Navigate to={'/todolist'}/>
+  }
 
   const onClick = () => {
     if (username && password) {
       dispatch(signIn({ username, password }));
     }
   };
+
+
+
 
   return (
     <Flex className={css.container} justify={'center'} align={'center'}>
