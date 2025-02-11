@@ -2,14 +2,13 @@ import { useSelector } from 'react-redux';
 import { RootState, useAppDispatch } from '@/app/rootStore';
 import { useEffect } from 'react';
 import { autMe } from '@/entits';
-import { Flex, Spin } from 'antd';
-import css from '@/App.module.css';
-import { LoadingOutlined } from '@ant-design/icons';
 import { Navigate, Outlet } from 'react-router-dom';
 import { paths } from '@/shared';
+import { Flex, Spin } from 'antd';
+import { LoadingOutlined } from '@ant-design/icons';
 
-export const AuthRoute=()=> {
-  const { isAuthorization, isLoading } = useSelector((state: RootState) => state.userStore);
+export const AuthRoute = () => {
+  const { isAuthorization,  isInitialize } = useSelector((state: RootState) => state.userStore);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -18,16 +17,16 @@ export const AuthRoute=()=> {
     }
   }, []);
 
-  if (!isLoading) {
+  if (!isInitialize) {
     return (
-      <Flex className={css.containerLoading} justify={'center'} align={'center'}>
+      <Flex justify={'center'} align={'center'}>
         <Spin indicator={<LoadingOutlined style={{ fontSize: 48 }} spin />} />
       </Flex>
     );
   }
 
   if (!isAuthorization) {
-    return <Navigate to={paths.login.route()}/>;
+    return <Navigate to={paths.login.route()} />;
   }
 
   // const onClick = () => {
@@ -42,9 +41,12 @@ export const AuthRoute=()=> {
       {/*  </Button>*/}
       {/*</Flex>*/}
       {/*<Body />*/}
-      <Outlet/>
+
+      <div>Header</div>
+      <div><Outlet/></div>
+      <div>footer</div>
     </>
   );
-}
+};
 
 // export default AuthRoute;

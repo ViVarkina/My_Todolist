@@ -30,8 +30,6 @@ export const Login = () => {
   };
 
 
-
-
   return (
     <Flex className={css.container} justify={'center'} align={'center'}>
       <Flex gap={12} vertical style={{ width: 500 }}>

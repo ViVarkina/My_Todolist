@@ -1,12 +1,11 @@
-import { Todolist } from '@/body/components/components';
 import { Flex } from 'antd';
 import css from './components/todolist/Todolist.module.css';
-import { AddTodolist } from '@/body/components/components';
 import { RootState, useAppDispatch } from '@/app';
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { getMyTodolist } from '@/entits';
 import { getMyTask } from '@/entits';
+import { AddTodolist, Todolist } from '@/feature/todolists/components';
 
 
 export const TodoLists=()=>{
@@ -20,9 +19,9 @@ export const TodoLists=()=>{
 
 
   return(
-    <Flex className={css.container} align={'center'} vertical gap={24} style={{height:'100vh'}}>
+    <Flex className={css.container} align={'center'} vertical gap={24}>
       <AddTodolist/>
-      <Flex wrap={'wrap'} className={css.todolists} gap={16} justify={"center"} style={{height:'50%'}}>
+      <Flex wrap={'wrap'} className={css.todolists} gap={16}  >
         {todoLists.map((todolist)=>{
           return <Todolist title={todolist.title} todolistId={todolist.id} key={todolist.id} />
         })}

@@ -1,6 +1,5 @@
 import {Flex } from 'antd';
 import css from './Todolist.module.css';
-import { ChangeTitle } from '@/body/components';
 import { changeTodolist } from '@/entits';
 import { DeleteTodolist } from '../deleteTodolist/DeleteTodolist.tsx';
 import { AddTask } from '../addTask/AddTask.tsx';
@@ -10,6 +9,7 @@ import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { FilterTasks } from '../filterTasks/FilterTasks.tsx';
 import { RootState, useAppDispatch } from '@/app';
+import { ChangeTitle } from '@/feature/todolists';
 
 export interface Props {
   title: string;

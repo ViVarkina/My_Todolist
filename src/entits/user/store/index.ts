@@ -7,6 +7,7 @@ const userSlice = createSlice({
   initialState: {
     isAuthorization: false,
     isLoading: false,
+    isInitialize:false,
   },
   reducers: {
     logOut: (state) => {
@@ -19,9 +20,11 @@ const userSlice = createSlice({
       .addCase(autMe.fulfilled, (state) => {
         state.isAuthorization = true;
         state.isLoading = true;
+        state.isInitialize = true
       })
       .addCase(autMe.rejected, (state) => {
         state.isLoading = true;
+        state.isInitialize=true
       });
   },
 });

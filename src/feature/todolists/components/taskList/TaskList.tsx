@@ -1,10 +1,11 @@
 import { Button, Checkbox, Flex } from 'antd';
 import { DeleteOutlined } from '@ant-design/icons';
 import { TaskTDO } from '@/entits';
-import { ChangeTitle } from '@/body/components';
+
 import { useAppDispatch } from '@/app/rootStore';
 import { deleteTask } from '@/entits';
 import { updateTask } from '@/entits';
+import { ChangeTitle } from '@/feature/todolists';
 
 interface PropsType {
   filterTask: TaskTDO[];
