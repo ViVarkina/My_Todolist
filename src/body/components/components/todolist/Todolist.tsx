@@ -1,15 +1,15 @@
 import {Flex } from 'antd';
 import css from './Todolist.module.css';
-import { ChangeTitle } from '../changeTitle/ChangeTitle.tsx';
-import { changeTodolist } from '../../../../entits/todolist/api/changeTodolist.ts';
+import { ChangeTitle } from '@/body/components';
+import { changeTodolist } from '@/entits';
 import { DeleteTodolist } from '../deleteTodolist/DeleteTodolist.tsx';
 import { AddTask } from '../addTask/AddTask.tsx';
 import { TaskList } from '../taskList/TaskList.tsx';
-import { TaskTDO } from '../../../../entits/task/type';
+import { TaskTDO } from '@/entits';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { FilterTasks } from '../filterTasks/FilterTasks.tsx';
-import { RootState, useAppDispatch } from '../../../../App/rootStore';
+import { RootState, useAppDispatch } from '@/app';
 
 export interface Props {
   title: string;

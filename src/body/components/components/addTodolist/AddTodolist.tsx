@@ -1,7 +1,7 @@
 import { Button, Flex, Input } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 import { useState } from 'react';
-import { useAppDispatch } from '@/App/rootStore';
+import { useAppDispatch } from '@/app/rootStore';
 import { addTodolist } from '@/entits';
 
 export const AddTodolist = () => {

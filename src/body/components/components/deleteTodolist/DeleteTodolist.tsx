@@ -1,6 +1,6 @@
 import { DeleteOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
-import { useAppDispatch } from '@/App/rootStore';
+import { useAppDispatch } from '@/app/rootStore';
 import { deleteTodolist } from '@/entits';
 
 interface PropsType {

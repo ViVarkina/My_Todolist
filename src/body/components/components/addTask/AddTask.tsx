@@ -1,6 +1,6 @@
 import { Button, Flex, Input } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
-import { useAppDispatch } from '@/App/rootStore';
+import { useAppDispatch } from '@/app/rootStore';
 import { useState } from 'react';
 import { addTask } from '@/entits';
 

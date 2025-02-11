@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { RootState, useAppDispatch } from '@/App/rootStore';
+import { RootState, useAppDispatch } from '@/app/rootStore';
 import { useEffect } from 'react';
 import { autMe } from '@/entits';
 import { Flex, Spin } from 'antd';

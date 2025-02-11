@@ -1,7 +1,7 @@
 import { Button, Input, Flex } from 'antd';
 import css from './styles.module.css';
 import { useEffect, useState } from 'react';
-import { RootState, useAppDispatch } from '@/App/rootStore';
+import { RootState, useAppDispatch } from '@/app/rootStore';
 import { signIn } from '@/entits/user/api/sinIn.ts';
 import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
