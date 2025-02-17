@@ -38,7 +38,7 @@ export const Todolist = ({ title, todolistId }: Props) => {
 
   return (
     <Flex
-      style={{ width: 600 , }}
+      style={{ width: 550 , }}
       vertical
       gap={12}
       className={css.todolist}
