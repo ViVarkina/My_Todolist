@@ -3,13 +3,10 @@ import { RootState, useAppDispatch } from '@/app/rootStore';
 import { useEffect } from 'react';
 import { autMe } from '@/entits';
 import { Navigate, Outlet } from 'react-router-dom';
-import { paths } from '@/shared';
+import { BaseLayout, paths } from '@/shared';
 import { Flex, Spin } from 'antd';
 import { LoadingOutlined } from '@ant-design/icons';
-import { Body } from '@/Body.tsx';
-import { Header } from '@/Header.tsx';
-import { Footer } from '@/Footer.tsx';
-
+import { Footer, Header } from '@/feature';
 
 export const AuthRoute = () => {
   const { isAuthorization, isInitialize } = useSelector((state: RootState) => state.userStore);
@@ -33,19 +30,7 @@ export const AuthRoute = () => {
     return <Navigate to={paths.login.route()} />;
   }
 
-  return (
-    <>
-
-      {/*<Body />*/}
-      {/*каркас, логаут, боковое меню */}
-      <Flex vertical style={{margin:'0px'}}>
-        <Header/>
-        <Body outlet={<Outlet/>}/>
-        <Footer/>
-      </Flex>
-
-    </>
-  );
+  return <BaseLayout header={<Header />} footer={<Footer />} body={<Outlet />} />;
 };
 
 // export default AuthRoute;
