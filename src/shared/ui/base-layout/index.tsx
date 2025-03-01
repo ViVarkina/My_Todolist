@@ -1,4 +1,4 @@
-import { Layout, Grid } from 'antd';
+import { Grid, Layout } from 'antd';
 import { ReactNode } from 'react';
 
 const { Header, Footer, Sider, Content } = Layout;
@@ -8,11 +8,11 @@ interface Props {
   header: ReactNode;
   footer: ReactNode;
   body: ReactNode;
+  sideBar: ReactNode;
 }
 
-export const BaseLayout = ({ header, footer, body }: Props) => {
+export const BaseLayout = ({ header, footer, body, sideBar }: Props) => {
   const screen = useBreakpoint();
-  console.log(screen);
   return (
     <Layout style={{ height: '100vh' }}>
       <Header style={{ background: '#ADD1FF' }}>{header}</Header>
@@ -24,13 +24,11 @@ export const BaseLayout = ({ header, footer, body }: Props) => {
           zeroWidthTriggerStyle={{ width: '100px' }}
           style={{ background: '#BEDAFF' }}
         >
-          jjj
+          {sideBar}
         </Sider>
-        <Content style={{ overflow: 'auto', background: 'white' }}>{body}</Content>
+        <Content style={{ overflow: 'auto', background: 'white' , padding:'8px'}} >{body}</Content>
       </Layout>
       <Footer style={{ background: '#ADD1FF' }}>{footer}</Footer>
     </Layout>
   );
 };
-
-//Медиазапросы, Изменить ширину тодолиста в зависимости от ширины экрана, по клику на тудулист открыть отдельную страницу с туду

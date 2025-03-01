@@ -10,6 +10,8 @@ import { useSelector } from 'react-redux';
 import { FilterTasks } from '../filterTasks/FilterTasks.tsx';
 import { RootState, useAppDispatch } from '@/app';
 import { ChangeTitle } from '@/feature/todolists';
+// import { Link } from 'react-router-dom';
+// import { paths } from '@/shared';
 
 export interface Props {
   title: string;
@@ -51,12 +53,13 @@ export const Todolist = ({ title, todolistId }: Props) => {
         />
         <DeleteTodolist todolistId={todolistId} />
       </Flex>
-      <Flex vertical justify={'flex-start'}>
-        <AddTask todolistId={todolistId} />
+      <AddTask todolistId={todolistId} />
+      <Flex vertical justify={'flex-start'} style={{height: '200px', overflow: 'auto'}}>
         <TaskList filterTask={filterTask} />
       </Flex>
-      <Flex style={{ height: '20%' }} justify={'flex-end'} vertical>
+      <Flex style={{ height: '20%' }} justify={'space-between'} align={'center'}>
         <FilterTasks filterState={filterState} setFilterState={setFilterState} />
+        {/*<Button><Link to={paths.}></Link>Просмотр...</Button>*/}
       </Flex>
     </Flex>
   );

@@ -9,11 +9,12 @@ export const Routing = () => {
       <Routes>
         {/*приватный роуты*/}
         <Route element={<AuthRoute />}>
-          <Route path={paths.main.route()} element={<div>Str</div>}/>
-          <Route path={paths.todolist.route()} element={<TodolistPage/>} />
+          <Route path={paths.main()} element={<div>Str</div>}/>
+          <Route path={paths.todolists()} element={<TodolistPage/>} />
+          <Route path={paths.todolist()} element={<h1>ggg</h1>}/>
         </Route>
         {/*неавотриз роут*/}
-        <Route path={paths.login.route()} element={<LoginPage/>} />
+        <Route path={paths.login()} element={<LoginPage/>} />
         <Route path={'*'} element={<div>444</div>}/>
       </Routes>
     </BrowserRouter>

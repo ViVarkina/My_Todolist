@@ -7,6 +7,7 @@ import { BaseLayout, paths } from '@/shared';
 import { Flex, Spin } from 'antd';
 import { LoadingOutlined } from '@ant-design/icons';
 import { Footer, Header } from '@/feature';
+import { SideBar } from '@/feature/side-bar';
 
 export const AuthRoute = () => {
   const { isAuthorization, isInitialize } = useSelector((state: RootState) => state.userStore);
@@ -27,10 +28,10 @@ export const AuthRoute = () => {
   }
 
   if (!isAuthorization) {
-    return <Navigate to={paths.login.route()} />;
+    return <Navigate to={paths.login()} />;
   }
 
-  return <BaseLayout header={<Header />} footer={<Footer />} body={<Outlet />} />;
+  return <BaseLayout header={<Header />} footer={<Footer />} body={<Outlet />} sideBar={<SideBar/>} />;
 };
 
 // export default AuthRoute;

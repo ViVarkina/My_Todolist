@@ -1,13 +1,6 @@
-
-
-export const paths={
-    main:{
-      route:()=>'/'
-    },
-  todolist:{
-      route:(id:string = '')=>`/todolist/${id}`
-  },
-  login:{
-    route:()=>`/login`
-  }
-}
+export const paths = {
+  main: () => '/',
+  todolists:()=>'/todolists',
+  todolist: (id: string = 'todolistId') => `/todolist/${id}`,
+  login: () => `/login`,
+};
