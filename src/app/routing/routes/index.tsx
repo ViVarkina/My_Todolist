@@ -1,7 +1,8 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { AuthRoute } from '../auth-route';
 import { paths } from '@/shared';
-import { LoginPage, TodolistPage } from '@/page';
+import { LoginPage, MainPage, TodolistPage } from '@/page';
+import { TodolistsPage } from '@/page/todolists';
 
 export const Routing = () => {
   return (
@@ -9,9 +10,9 @@ export const Routing = () => {
       <Routes>
         {/*приватный роуты*/}
         <Route element={<AuthRoute />}>
-          <Route path={paths.main()} element={<div>Str</div>}/>
-          <Route path={paths.todolists()} element={<TodolistPage/>} />
-          <Route path={paths.todolist()} element={<h1>ggg</h1>}/>
+          <Route path={paths.main()} element={<MainPage/>}/>
+          <Route path={paths.todolists()} element={<TodolistsPage/>} />
+          <Route path={paths.todolist()} element={<TodolistPage/>}/>
         </Route>
         {/*неавотриз роут*/}
         <Route path={paths.login()} element={<LoginPage/>} />

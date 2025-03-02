@@ -1,7 +1,5 @@
-import { TodoLists } from '@/feature/todolists/TodoLists.tsx';
+import { TodolistWrapper } from '@/feature/todolists/todolist-wrapper/TodolistWrapper.tsx';
 
 export const TodolistPage=()=>{
-  return (
-    <TodoLists/>
-  )
+  return <TodolistWrapper/>
 }

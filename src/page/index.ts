@@ -1,2 +1,4 @@
 export {LoginPage} from './login'
-export {TodolistPage} from './todolist'
+export {TodolistsPage} from './todolists'
+export {MainPage} from './main-page'
+export { TodolistPage } from './todolist'

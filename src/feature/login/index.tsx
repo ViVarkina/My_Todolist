@@ -20,7 +20,7 @@ export const Login = () => {
   }, []);
 
   if(isAuthorization){
-    return <Navigate to={'/todolist'}/>
+    return <Navigate to={'/'}/>
   }
 
   const onClick = () => {

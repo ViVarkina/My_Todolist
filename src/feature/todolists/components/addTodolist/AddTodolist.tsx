@@ -23,7 +23,7 @@ export const AddTodolist = () => {
   return (
     <Flex gap={10}>
       <Input
-        placeholder={'Add todolist'}
+        placeholder={'Add todolists'}
         style={{ width: 500 }}
         value={value}
         onChange={(event) => {

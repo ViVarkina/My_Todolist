@@ -1,4 +1,4 @@
-import { Flex } from 'antd';
+import { Button, Flex } from 'antd';
 import css from './Todolist.module.css';
 import { changeTodolist } from '@/entits';
 import { DeleteTodolist } from '../deleteTodolist/DeleteTodolist.tsx';
@@ -10,8 +10,8 @@ import { useSelector } from 'react-redux';
 import { FilterTasks } from '../filterTasks/FilterTasks.tsx';
 import { RootState, useAppDispatch } from '@/app';
 import { ChangeTitle } from '@/feature/todolists';
-// import { Link } from 'react-router-dom';
-// import { paths } from '@/shared';
+import { Link } from 'react-router-dom';
+import { paths } from '@/shared';
 
 export interface Props {
   title: string;
@@ -59,7 +59,7 @@ export const Todolist = ({ title, todolistId }: Props) => {
       </Flex>
       <Flex style={{ height: '20%' }} justify={'space-between'} align={'center'}>
         <FilterTasks filterState={filterState} setFilterState={setFilterState} />
-        {/*<Button><Link to={paths.}></Link>Просмотр...</Button>*/}
+        <Button><Link to={paths.todolist(todolistId)}></Link>Просмотр...</Button>
       </Flex>
     </Flex>
   );

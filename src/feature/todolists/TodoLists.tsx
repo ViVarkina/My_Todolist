@@ -3,7 +3,7 @@ import css from './components/todolist/Todolist.module.css';
 import { RootState, useAppDispatch } from '@/app';
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { getMyTodolist } from '@/entits';
+import { getMyTodolists } from '@/entits';
 import { getMyTask } from '@/entits';
 import { AddTodolist, Todolist } from '@/feature/todolists/components';
 
@@ -13,7 +13,7 @@ export const TodoLists=()=>{
   const {todoLists}= useSelector((state:RootState )=> state.todolistStore)
 
   useEffect(() => {
-    dispatch(getMyTodolist())
+    dispatch(getMyTodolists())
     dispatch(getMyTask())
   }, []);
 

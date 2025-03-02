@@ -1,42 +1,49 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getMyTodolist } from '../api/getMyTodolist.ts';
-import { addTodolist } from '../api/addTodolist.ts';
+
 import { TodolistDTO } from '../type';
-import { changeTodolist } from '../api/changeTodolist.ts';
+import { addTodolist, changeTodolist, getMyTodolists } from '@/entits';
 
 interface InitialStateType {
   todoLists: TodolistDTO[];
   isLoading: boolean;
+  todoList: TodolistDTO | undefined
 }
 
 const initialState: InitialStateType = {
   todoLists: [],
   isLoading: false,
+  todoList: undefined
+
 };
 
 const todolistSlice = createSlice({
   name: 'todolist',
   initialState,
-  reducers: {},
+  reducers: {
+    clearTodolist:(state)=>{
+      state.todoList = undefined
+    }
+  },
   extraReducers:(builder)=>{
     builder
-      .addCase(getMyTodolist.pending,(state)=>{
-        state.isLoading = true
-      })
-      .addCase(getMyTodolist.fulfilled,(state,action)=>{
+      // .addCase(getMyTodolists.pending,(state)=>{
+      //   state.isLoading = true
+      // })
+      .addCase(getMyTodolists.fulfilled,(state,action)=>{
         state.todoLists =action.payload
         state.isLoading = false;
       })
-      .addCase(getMyTodolist.rejected, (state) => {
+      .addCase(getMyTodolists.rejected, (state) => {
         state.isLoading = false;
       })
-      .addCase(addTodolist.pending, (state) => {
+      .addCase(getMyTodolists.pending, (state) => {
         state.isLoading = true;
       })
       .addCase(addTodolist.fulfilled, (state, action) => {
         state.todoLists.unshift(action.payload);
         state.isLoading = false;
       })
+
       .addCase(changeTodolist.pending, (state)=>{
         state.isLoading =true
       })
@@ -49,3 +56,4 @@ const todolistSlice = createSlice({
 })
 
 export { todolistSlice };
+export const { clearTodolist} = todolistSlice.actions
