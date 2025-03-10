@@ -43,7 +43,7 @@ export const Todolist = ({ title, todolistId }: Props) => {
       className={css.todolist}
       justify={'space-between'}
     >
-      <Flex justify={'space-between'} gap={5}>
+      <Flex justify={'space-between'} gap={5} style={{ height: '20%' }}>
         <ChangeTitle
           title={title}
           saveTitle={(value, callBack) => {
@@ -53,9 +53,7 @@ export const Todolist = ({ title, todolistId }: Props) => {
         <DeleteTodolist todolistId={todolistId} />
       </Flex>
       <AddTask todolistId={todolistId} />
-      <Flex vertical justify={'flex-start'} style={{ maxHeight: '200px', overflow: 'hidden' }}>
-        <TaskList filterTask={filterTask} />
-      </Flex>
+      <TaskList filterTask={filterTask} />
       <Flex style={{ height: '20%' }} justify={'space-between'} align={'center'}>
         <FilterTasks filterState={filterState} setFilterState={setFilterState} />
         <Button>
