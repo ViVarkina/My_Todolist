@@ -12,7 +12,7 @@ interface CommonFunction {
 }
 
 export const addTodolist = createAsyncThunk<TodolistDTO, TodolistRequest & CommonFunction>(
-  'todolists/addTodolist',
+  'todolist/addTodolist',
   async ({successCallback,...data}) => {
     successCallback?.()
     const response = await apiInstance.post('/todolist',data);

@@ -15,7 +15,6 @@ export const getMyTodoList = createAsyncThunk<TodolistDTO, getTdl>(
   'todolist/getMyTodoList',
   async ({ id }) => {
     const response = await apiInstance.get<TodolistResponse>(`/todolist/${id}`);
-
     return normalizedTodolist(response.data);
   }
 );

@@ -59,7 +59,7 @@ export const Todolist = ({ title, todolistId }: Props) => {
       </Flex>
       <Flex style={{ height: '20%' }} justify={'space-between'} align={'center'}>
         <FilterTasks filterState={filterState} setFilterState={setFilterState} />
-        <Button><Link to={paths.todolist(todolistId)}></Link>Просмотр...</Button>
+        <Button><Link to={paths.todolist(todolistId)}>Просмотр...</Link></Button>
       </Flex>
     </Flex>
   );
