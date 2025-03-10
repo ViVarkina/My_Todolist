@@ -13,6 +13,8 @@ export const TodolistWrapper=()=>{
   const dispatch = useAppDispatch()
   const {todoList}= useSelector((state:RootState )=> state.todolistStore)
   const navigate = useNavigate()
+  console.log(todolistId);
+  console.log(todoList);
 
   useEffect(() => {
     if (todolistId){

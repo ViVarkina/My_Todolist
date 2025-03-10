@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 import { TodolistDTO } from '../type';
-import { addTodolist, changeTodolist, getMyTodolists } from '@/entits';
+import { addTodolist, changeTodolist, getMyTodoList, getMyTodolists } from '@/entits';
 
 interface InitialStateType {
   todoLists: TodolistDTO[];
@@ -38,6 +38,9 @@ const todolistSlice = createSlice({
       })
       .addCase(getMyTodolists.pending, (state) => {
         state.isLoading = true;
+      })
+      .addCase(getMyTodoList.fulfilled,(state, action)=>{
+        state.todoList = action.payload
       })
       .addCase(addTodolist.fulfilled, (state, action) => {
         state.todoLists.unshift(action.payload);

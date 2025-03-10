@@ -1,10 +1,9 @@
 import { Button, Flex } from 'antd';
 import css from './Todolist.module.css';
-import { changeTodolist } from '@/entits';
+import { changeTodolist, TaskTDO } from '@/entits';
 import { DeleteTodolist } from '../deleteTodolist/DeleteTodolist.tsx';
 import { AddTask } from '../addTask/AddTask.tsx';
 import { TaskList } from '../taskList/TaskList.tsx';
-import { TaskTDO } from '@/entits';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { FilterTasks } from '../filterTasks/FilterTasks.tsx';
@@ -44,7 +43,7 @@ export const Todolist = ({ title, todolistId }: Props) => {
       className={css.todolist}
       justify={'space-between'}
     >
-      <Flex justify={'space-between'} gap={5} style={{ height: '20%' }}>
+      <Flex justify={'space-between'} gap={5}>
         <ChangeTitle
           title={title}
           saveTitle={(value, callBack) => {
@@ -54,12 +53,14 @@ export const Todolist = ({ title, todolistId }: Props) => {
         <DeleteTodolist todolistId={todolistId} />
       </Flex>
       <AddTask todolistId={todolistId} />
-      <Flex vertical justify={'flex-start'} style={{height: '200px', overflow: 'auto'}}>
+      <Flex vertical justify={'flex-start'} style={{ maxHeight: '200px', overflow: 'hidden' }}>
         <TaskList filterTask={filterTask} />
       </Flex>
       <Flex style={{ height: '20%' }} justify={'space-between'} align={'center'}>
         <FilterTasks filterState={filterState} setFilterState={setFilterState} />
-        <Button><Link to={paths.todolist(todolistId)}>Просмотр...</Link></Button>
+        <Button>
+          <Link to={paths.todolist(todolistId)}>Просмотр...</Link>
+        </Button>
       </Flex>
     </Flex>
   );

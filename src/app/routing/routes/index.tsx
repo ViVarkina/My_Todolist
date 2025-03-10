@@ -11,8 +11,9 @@ export const Routing = () => {
         {/*приватный роуты*/}
         <Route element={<AuthRoute />}>
           <Route path={paths.main()} element={<MainPage/>}/>
-          <Route path={paths.todolists()} element={<TodolistsPage/>} />
+          <Route path={paths.todolists()} element={<TodolistsPage/>}/>
           <Route path={paths.todolist()} element={<TodolistPage/>}/>
+
         </Route>
         {/*неавотриз роут*/}
         <Route path={paths.login()} element={<LoginPage/>} />

@@ -10,7 +10,7 @@ const normalizeTodolist = (todolist: TodolistResponse[]): TodolistDTO[] => {
 };
 
 
-export const getMyTodolists = createAsyncThunk<TodolistDTO[], void>('todolists/getMyTodolists', async () => {
-  const response = await apiInstance.get<TodolistResponse[]>(`/todolists`);
+export const getMyTodolists = createAsyncThunk<TodolistDTO[], void>('todolist/getMyTodolists', async () => {
+  const response = await apiInstance.get<TodolistResponse[]>(`/todolist`);
   return normalizeTodolist(response.data)
 });
