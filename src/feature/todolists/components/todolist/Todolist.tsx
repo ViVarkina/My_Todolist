@@ -53,7 +53,7 @@ export const Todolist = ({ title, todolistId }: Props) => {
         <DeleteTodolist todolistId={todolistId} />
       </Flex>
       <AddTask todolistId={todolistId} />
-      <TaskList filterTask={filterTask} />
+      {filterTask && <TaskList filterTask={filterTask} />}
       <Flex style={{ height: '20%' }} justify={'space-between'} align={'center'}>
         <FilterTasks filterState={filterState} setFilterState={setFilterState} />
         <Button>

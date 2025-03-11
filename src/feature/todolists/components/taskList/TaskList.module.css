@@ -4,3 +4,11 @@
     overflow: hidden;
 }
 
+.btnIsCollapse {
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    bottom: -5px;
+    left: calc(50% - 20px);
+}
+
